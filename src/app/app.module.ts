@@ -5,10 +5,13 @@ import { AppComponent } from './app.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './service/in-memory-db-service.service';
+import { NewsAllComponent } from './news-all/news-all.component';
+import { NewsServiceService } from './service/news-service.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewsAllComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +21,7 @@ import { InMemoryDataService } from './service/in-memory-db-service.service';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
+  providers: [NewsServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
