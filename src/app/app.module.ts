@@ -7,11 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './service/in-memory-db-service.service';
 import { NewsAllComponent } from './news-all/news-all.component';
 import { NewsServiceService } from './service/news-service.service';
+import { NewsDetailComponent } from './news-detail/news-detail.component';
+import { AddNewsComponent } from './add-news/add-news.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewsAllComponent
+    NewsAllComponent,
+    NewsDetailComponent,
+    AddNewsComponent
   ],
   imports: [
     BrowserModule,

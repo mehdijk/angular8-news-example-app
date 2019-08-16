@@ -15,4 +15,8 @@ export class NewsServiceService {
   getAllNews():Observable<News[]>{
     return this.http.get<News[]>(this.apiUrl);
   }
+
+  getNewsById(id:number):Observable<News>{
+    return this.http.get<News>(this.apiUrl +'/'+id);
+  }
 }

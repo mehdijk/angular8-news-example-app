@@ -1,4 +1,4 @@
 <div *ngFor="let news of newsAll">
-    <h2>{{news.title}}</h2>
-    <p>{{news.body}} - ({{news.entryDate |date}})</p>
+    <a routerLink="news/{{news.id}}">{{news.title}}</a>
+    <p>({{news.entryDate |date}})</p>
 </div>
