@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { News } from '../model/news.model';
+import { NewsServiceService } from '../service/news-service.service';
 
 @Component({
   selector: 'app-add-news',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNewsComponent implements OnInit {
 
-  constructor() { }
+  news:News;
+  title:string;
+  constructor(private newsService:NewsServiceService) { }
 
   ngOnInit() {
+    this.title="";
+    this.news=new News();
   }
-
+  
 }
