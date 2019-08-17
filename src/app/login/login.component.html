@@ -1,0 +1,17 @@
+<h2>Login</h2>
+<form class="login-form" ngForm>
+    <mat-form-field >
+      <input matInput placeholder="username" 
+      #username name="name">
+    </mat-form-field>
+    <mat-form-field >
+        <input matInput placeholder="password" type="password"
+         #password name="name">
+      </mat-form-field>
+    <div class="container-button">
+    <button mat-flat-button color="accent"  class="button"
+    (click)="onCancelClick()">Cancel</button>
+    <button mat-flat-button color="accent" class="button"
+    (click)="onLoginClick(username.value,password.value)">Login</button>
+    </div>
+</form>

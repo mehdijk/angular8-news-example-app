@@ -1,0 +1,22 @@
+<div class="container">
+<div class="main-buttons">
+    <button class="button" mat-flat-button color="primary" routerLink="/home">
+        <mat-icon>home</mat-icon>
+        <span> Home</span></button>
+    <button *ngIf="isLogin" class="button" mat-flat-button
+    color="primary" routerLink="/add">
+        <mat-icon>add</mat-icon>
+        <span> Add</span>
+    </button>
+</div>
+    <button *ngIf="!isLogin" class="button" mat-flat-button  
+    color="accent" routerLink="/login"  >
+        <mat-icon>face</mat-icon>
+        <span> Login</span>
+    </button>
+    <button *ngIf="isLogin" class="button" mat-flat-button  
+    color="accent" (click)="logout()" >
+        <mat-icon>logout</mat-icon>
+        <span> Logout</span>
+    </button>
+</div>

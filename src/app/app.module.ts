@@ -17,13 +17,18 @@ import { MatButtonModule, MatMenuModule, MatIconModule,
   MatNativeDateModule,
   MatInputModule} from "@angular/material";
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import { LoginService } from './service/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsAllComponent,
     NewsDetailComponent,
-    AddNewsComponent
+    AddNewsComponent,
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
 
   ],
-  providers: [NewsServiceService],
+  providers: [NewsServiceService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
