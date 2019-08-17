@@ -1,3 +1,32 @@
+<h2>Add a news</h2>
+<form class="add-form" ngForm>
+    <mat-form-field >
+      <input matInput placeholder="News title" 
+      [(ngModel)]="news.title" name="name">
+    </mat-form-field>
+    <mat-form-field >
+      <textarea matInput placeholder="News body" 
+      [(ngModel)]="news.body" name="name"></textarea>
+    </mat-form-field>
+    <mat-form-field >
+        <input matInput placeholder="Image URL" type="url"
+         [(ngModel)]="news.imgUrl" name="name">
+      </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="news.entryDate" 
+        name="name" placeholder="Date of news">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div class="container-button">
+    <button mat-flat-button color="accent"  class="button"
+    (click)="onCancelClick()">Cancel</button>
+    <button mat-flat-button color="accent" class="button"
+    (click)="onAddClick()">Add</button>
+    </div>
+
+  </form>
+
 <!-- <form ngForm>
     <input [(ngModel)]="title" name="name"><br>
     <input [(ngModel)]="news.body" name="name"><br>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewsServiceService } from '../service/news-service.service';
 import { News } from '../model/news.model';
 import {  ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-news-detail',
@@ -14,7 +15,8 @@ export class NewsDetailComponent implements OnInit {
   id:number;
 
   constructor(private newsService:NewsServiceService,
-              private route:ActivatedRoute) { }
+              private route:ActivatedRoute,
+              private location:Location) { }
 
   ngOnInit() {
     this.id=+this.route.snapshot.params.id;
@@ -25,6 +27,10 @@ export class NewsDetailComponent implements OnInit {
     this.newsService.getNewsById(this.id).subscribe(
       news=>this.news=news
     );
+  }
+
+  backClick(){
+    this.location.back();
   }
 
 

@@ -9,7 +9,14 @@ import { NewsAllComponent } from './news-all/news-all.component';
 import { NewsServiceService } from './service/news-service.service';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { AddNewsComponent } from './add-news/add-news.component';
-import { MatButtonModule, MatMenuModule, MatMenuItem, MatIconModule, MatDividerModule } from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatButtonModule, MatMenuModule, MatIconModule, 
+  MatDividerModule, MatLineModule, MatListModule, 
+  MatSelectModule, MatCardModule, MatFormFieldModule,
+  MatDatepickerModule, 
+  MatNativeDateModule,
+  MatInputModule} from "@angular/material";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,17 @@ import { MatButtonModule, MatMenuModule, MatMenuItem, MatIconModule, MatDividerM
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatLineModule,
+    MatListModule,
+    MatSelectModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [NewsServiceService],

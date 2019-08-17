@@ -1,5 +1,15 @@
-<div *ngIf="news">
-    <h1>{{news.title}}</h1>
-    <p>{{news.body}}</p>
-    <p>{{news.entryDate}}</p>
-</div>
+
+<mat-card *ngIf="news">
+    <mat-card-header>
+        <mat-card-title>{{news.title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image class="detail-image"
+    src="{{news.imgUrl}}" >
+    <mat-card-content class="content">
+        {{news.body}}
+        <div style="color: gray">({{news.entryDate|date}})</div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button color="accent" (click)="backClick()">Back</button>
+    </mat-card-actions>
+</mat-card>

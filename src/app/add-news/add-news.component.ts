@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from '../model/news.model';
 import { NewsServiceService } from '../service/news-service.service';
+import { runInThisContext } from 'vm';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-news',
@@ -10,12 +12,21 @@ import { NewsServiceService } from '../service/news-service.service';
 export class AddNewsComponent implements OnInit {
 
   news:News;
-  title:string;
-  constructor(private newsService:NewsServiceService) { }
+  constructor(private newsService:NewsServiceService,
+              private router:Router) { }
 
   ngOnInit() {
-    this.title="";
     this.news=new News();
+  }
+
+  onAddClick(){
+    this.newsService.addNews(this.news).subscribe(
+      x=>this.router.navigate(['/home'])
+    )
+  }
+
+  onCancelClick(){
+    this.router.navigate(['/home']);
   }
   
 }

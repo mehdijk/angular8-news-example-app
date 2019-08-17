@@ -1,4 +1,15 @@
-<div *ngFor="let news of newsAll">
-    <a routerLink="news/{{news.id}}">{{news.title}}</a>
-    <p>({{news.entryDate |date}})</p>
-</div>
+<mat-selection-list>
+    <mat-list-item *ngFor="let news of newsAll">
+        <a matLine routerLink="/news/{{news.id}}">{{news.title}}</a>
+        <!-- <span>({{news.entryDate |date}})</span> -->
+        <button mat-icon-button (click)="edit(news.id)">
+           <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="delete(news.id)">
+            <mat-icon>delete</mat-icon>
+         </button>
+         <mat-divider></mat-divider>
+     </mat-list-item>
+
+</mat-selection-list>
+
