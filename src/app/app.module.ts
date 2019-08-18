@@ -15,7 +15,7 @@ import { MatButtonModule, MatMenuModule, MatIconModule,
   MatSelectModule, MatCardModule, MatFormFieldModule,
   MatDatepickerModule, 
   MatNativeDateModule,
-  MatInputModule} from "@angular/material";
+  MatInputModule, MatSnackBarModule} from "@angular/material";
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
@@ -53,6 +53,7 @@ import { AboutComponent } from './about/about.component';
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
+    MatSnackBarModule
 
   ],
   providers: [NewsServiceService,LoginService],

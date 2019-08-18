@@ -12,3 +12,8 @@
 .button{
     margin:5px;
 }
+
+.snackBar{
+    max-width: 200px;
+    color: blue;
+}
