@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 export class LoginService {
 
   
-  @Output() change: EventEmitter<boolean> = new EventEmitter();
+  @Output() loginChanged: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
   public is_login=false;
 
@@ -25,13 +25,13 @@ export class LoginService {
   login(username:string,password:string):boolean{
     //if (username==="mehdi" && password==="mehdi") {
       this.is_login=true;
-      this.change.emit(this.is_login);
+      this.loginChanged.emit(this.is_login);
     //}
     return this.is_login;
   }
 
   logout(){
     this.is_login=false;
-    this.change.emit(this.is_login);
+    this.loginChanged.emit(this.is_login);
   }
 }

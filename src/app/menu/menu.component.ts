@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   isLogin:Boolean=false;
 
   ngOnInit() {
-    this.loginService.change.subscribe(
+    this.loginService.loginChanged.subscribe(
       x=>this.isLogin=x
     )
   }

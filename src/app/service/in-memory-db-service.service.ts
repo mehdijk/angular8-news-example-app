@@ -8,7 +8,7 @@ import { News } from '../model/news.model';
 export class InMemoryDataService implements InMemoryDbService {
 
   createDb(){
-    let newsAll=[
+    const newsAll=[
       { id:11,
         title:'Needs more time to think',
         body:'Eoin Morgan wants to captain England in next year\s Twenty20 World Cup but says he "needs more time" to reflect after a back injury.',
@@ -32,7 +32,4 @@ export class InMemoryDataService implements InMemoryDbService {
     Math.max(...newsAll.map(news => news.id)) + 1 : 11;
   }
 
-  constructor() { 
-    console.log(this);
-    }
 }

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Observable,of } from 'rxjs';
 import { News } from '../model/news.model';
+import { catchError, map, tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,9 @@ import { News } from '../model/news.model';
 export class NewsServiceService {
 
   private apiUrl="api/newsAll"
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http:HttpClient) { }
 
@@ -23,4 +28,10 @@ export class NewsServiceService {
   addNews(news:News):Observable<any>{
     return this.http.post<News>(this.apiUrl,news);
   }
+
+  deleteNews(id:number):Observable<any>{
+    return this.http.delete<News>(this.apiUrl +'/'+id,this.httpOptions);
+  }
+
+ 
 }
