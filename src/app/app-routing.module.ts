@@ -5,7 +5,7 @@ import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { AuthGuard } from './service/auth.guard';
 import { LoginComponent } from './login/login.component';
-import { EditComponent } from './edit/edit.component';
+import { AboutComponent } from './about/about.component';
 
 
 const routes: Routes = [
@@ -15,6 +15,7 @@ const routes: Routes = [
   {path:'add',component:AddNewsComponent, canActivate:[AuthGuard]},
   {path:'login',component:LoginComponent},
   {path:'edit/:id',component:AddNewsComponent,canActivate:[AuthGuard]},
+  {path:'about', component:AboutComponent},
 ];
 
 @NgModule({

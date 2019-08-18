@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from '../model/news.model';
 import { NewsServiceService } from '../service/news-service.service';
-import { runInThisContext } from 'vm';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

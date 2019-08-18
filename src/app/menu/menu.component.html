@@ -2,11 +2,16 @@
 <div class="main-buttons">
     <button class="button" mat-flat-button color="primary" routerLink="/home">
         <mat-icon>home</mat-icon>
-        <span> Home</span></button>
+        <span> Home</span>
+    </button>
     <button *ngIf="isLogin" class="button" mat-flat-button
     color="primary" routerLink="/add">
         <mat-icon>add</mat-icon>
         <span> Add</span>
+    </button>
+    <button class="button" mat-flat-button color="primary" routerLink="/about">
+        <mat-icon>assignment</mat-icon>
+        <span> About</span>
     </button>
 </div>
     <button *ngIf="!isLogin" class="button" mat-flat-button  

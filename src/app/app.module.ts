@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginService } from './service/login.service';
-import { EditComponent } from './edit/edit.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { EditComponent } from './edit/edit.component';
     AddNewsComponent,
     LoginComponent,
     MenuComponent,
-    EditComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
