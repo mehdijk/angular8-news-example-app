@@ -33,5 +33,9 @@ export class NewsServiceService {
     return this.http.delete<News>(this.apiUrl +'/'+id,this.httpOptions);
   }
 
+  updateNews(news:News):Observable<any>{
+    return this.http.put<News>(this.apiUrl,news);
+  }
+
  
 }

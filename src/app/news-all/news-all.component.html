@@ -2,7 +2,7 @@
     <mat-list-item *ngFor="let news of newsAll">
         <a matLine routerLink="/news/{{news.id}}">{{news.title}}</a>
         <button *ngIf="isLogin" mat-icon-button
-         (click)="edit(news.id)">
+        routerLink="/edit/{{news.id}}">
            <mat-icon>edit</mat-icon>
         </button>
         <button *ngIf="isLogin" mat-icon-button 

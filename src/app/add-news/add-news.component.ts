@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { News } from '../model/news.model';
 import { NewsServiceService } from '../service/news-service.service';
 import { runInThisContext } from 'vm';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-news',
@@ -13,10 +13,18 @@ export class AddNewsComponent implements OnInit {
 
   news:News;
   constructor(private newsService:NewsServiceService,
-              private router:Router) { }
+              private router:Router,
+              private Route:ActivatedRoute) { }
+  editId:number;
 
   ngOnInit() {
-    this.news=new News();
+    this.editId=this.Route.snapshot.params.id;
+    if (this.editId) {
+      this.newsService.getNewsById(this.editId).subscribe(
+        news=>this.news=news)
+    } else {
+      this.news=new News();
+    }
   }
 
   onAddClick(){
@@ -27,6 +35,12 @@ export class AddNewsComponent implements OnInit {
 
   onCancelClick(){
     this.router.navigate(['/home']);
+  }
+
+  onEditClick(){
+    this.newsService.updateNews(this.news).subscribe(
+      x=>this.router.navigate(['/home'])
+    );
   }
   
 }

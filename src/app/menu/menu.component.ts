@@ -1,5 +1,6 @@
 import { Component, OnInit,HostListener, HostBinding } from '@angular/core';
 import { LoginService } from '../service/login.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +9,9 @@ import { LoginService } from '../service/login.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService,
+              private route:ActivatedRoute,
+              private router:Router) {
    }
   isLogin:Boolean=false;
 
@@ -19,7 +22,14 @@ export class MenuComponent implements OnInit {
   }
 
   logout(){
+    const url:string=this.route.snapshot['_routerState'].url;
+    //is url contain Add or Edit
+    const count:number=url.split('/').filter(x=>x==="edit" || x==="add").length;
     this.loginService.logout();
+    if (count>=1){
+      this.router.navigate(['/home']);
+    }
+
   }
 
 

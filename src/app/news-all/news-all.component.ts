@@ -26,17 +26,6 @@ export class NewsAllComponent implements OnInit {
     this.getNewsAll();
   }
 
-  ngAfterViewInit(): void {
-    // this.loginService.isLogin().then(x=>this.isLogin=x);
-    // this.loginService.loginChanged.subscribe(x=>this.isLogin=x);
-  }
-  ngAfterContentChecked(): void {
-    //Called after every check of the component's or directive's content.
-    //Add 'implements AfterContentChecked' to the class.
-    //this.loginService.change.subscribe(x=>this.isLogin=x);
-  }
-  
-
   getNewsAll(){
     this.newsService.getAllNews().subscribe(
       newsAll=>this.newsAll=newsAll
@@ -46,16 +35,6 @@ export class NewsAllComponent implements OnInit {
   delete(id:number){
     this.newsService.deleteNews(id)
     .subscribe(x=>this.getNewsAll());
-  }
-
-  tempClick(){
-    console.log("from class: "+this.isLogin);
-    // this.loginService.isLogin().then(
-    //   x=>{this.isLogin=x;
-    //   console.log("from service"+x);
-    //   }
-    // );
-   // this.isLogin=!this.isLogin;
   }
 
 }

@@ -1,28 +1,40 @@
-<h2>Add a news</h2>
-<form class="add-form" ngForm>
+<ng-container *ngIf="editId; else addTitle">
+  <h2>Edit a news</h2>
+</ng-container>
+<ng-template #addTitle>
+  <h2>Add a news</h2>
+</ng-template>
+<form class="add-form" ngForm *ngIf="news">
     <mat-form-field >
       <input matInput placeholder="News title" 
-      [(ngModel)]="news.title" name="name">
+      [(ngModel)]="news.title" name="title">
     </mat-form-field>
     <mat-form-field >
       <textarea matInput placeholder="News body" 
-      [(ngModel)]="news.body" name="name"></textarea>
+      [(ngModel)]="news.body" name="body"></textarea>
     </mat-form-field>
     <mat-form-field >
         <input matInput placeholder="Image URL" type="url"
-         [(ngModel)]="news.imgUrl" name="name">
+         [(ngModel)]="news.imgUrl" name="imgUrl">
       </mat-form-field>
     <mat-form-field>
         <input matInput [matDatepicker]="picker" [(ngModel)]="news.entryDate" 
-        name="name" placeholder="Date of news">
+        name="entryDate" placeholder="Date of news">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <div class="container-button">
     <button mat-flat-button color="accent"  class="button"
     (click)="onCancelClick()">Cancel</button>
-    <button mat-flat-button color="accent" class="button"
-    (click)="onAddClick()">Add</button>
+      <ng-container *ngIf="editId; else addButton">
+        <button  mat-flat-button color="accent" class="button"
+        (click)="onEditClick()">Edit</button>
+      </ng-container>
+      <ng-template #addButton>
+        <button mat-flat-button color="accent" class="button"
+        (click)="onAddClick()">Add</button>
+      </ng-template>
+
     </div>
 
   </form>
