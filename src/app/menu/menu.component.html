@@ -1,25 +1,26 @@
-<div class="container">
-<div class="main-buttons">
-    <button class="button" mat-flat-button color="primary" routerLink="/home">
+<!-- <div class="container"> -->
+        <div class="nav" >
+<!-- <div class="main-buttons"> -->
+    <button class="nav-item button" mat-flat-button color="primary" routerLink="/home">
         <mat-icon>home</mat-icon>
         <span> Home</span>
     </button>
-    <button *ngIf="isLogin" class="button" mat-flat-button
+    <button class="nav-item button" *ngIf="isLogin" mat-flat-button
     color="primary" routerLink="/add">
         <mat-icon>add</mat-icon>
         <span> Add</span>
     </button>
-    <button class="button" mat-flat-button color="primary" routerLink="/about">
+    <button class="nav-item button" mat-flat-button color="primary" routerLink="/about">
         <mat-icon>assignment</mat-icon>
         <span> About</span>
     </button>
-</div>
-    <button *ngIf="!isLogin" class="button" mat-flat-button  
+<!-- </div> -->
+    <button class="nav-item button" *ngIf="!isLogin"  mat-flat-button  
     color="accent" routerLink="/login"  >
         <mat-icon>face</mat-icon>
         <span> Login</span>
     </button>
-    <button *ngIf="isLogin" class="button" mat-flat-button  
+    <button class="nav-item button" *ngIf="isLogin"  mat-flat-button  
     color="accent" (click)="logout()" >
         <mat-icon>logout</mat-icon>
         <span> Logout</span>

@@ -14,10 +14,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  isLogin:Boolean=false;
 
   onLoginClick(username:string,password:string){
     if(this.loginService.login(username,password)){
       this.router.navigate(['/home']);
+    } else{
+      this.isLogin=true;
     }
   }
 

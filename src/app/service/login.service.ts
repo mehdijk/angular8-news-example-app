@@ -23,10 +23,10 @@ export class LoginService {
   }
 
   login(username:string,password:string):boolean{
-    //if (username==="mehdi" && password==="mehdi") {
+    if (username==="admin" && password==="admin") {
       this.is_login=true;
       this.loginChanged.emit(this.is_login);
-    //}
+    }
     return this.is_login;
   }
 
