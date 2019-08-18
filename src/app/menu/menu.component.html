@@ -10,10 +10,17 @@
         <mat-icon>add</mat-icon>
         <span> Add</span>
     </button>
+    <button class="nav-item button" *ngIf="isLogin" mat-flat-button 
+    color="primary"
+    (click)="resetDB()" >
+        <mat-icon>autorenew</mat-icon>
+        <span>Reset App</span>
+    </button>
     <button class="nav-item button" mat-flat-button color="primary" routerLink="/about">
         <mat-icon>assignment</mat-icon>
         <span> About</span>
     </button>
+
 <!-- </div> -->
     <button class="nav-item button" *ngIf="!isLogin"  mat-flat-button  
     color="accent" routerLink="/login"  >

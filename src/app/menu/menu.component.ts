@@ -1,6 +1,7 @@
 import { Component, OnInit,HostListener, HostBinding } from '@angular/core';
 import { LoginService } from '../service/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NewsServiceService } from '../service/news-service.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,8 @@ export class MenuComponent implements OnInit {
 
   constructor(private loginService:LoginService,
               private route:ActivatedRoute,
-              private router:Router) {
+              private router:Router,
+              private newsService:NewsServiceService) {
    }
   isLogin:Boolean=false;
 
@@ -29,7 +31,13 @@ export class MenuComponent implements OnInit {
     if (count>=1){
       this.router.navigate(['/home']);
     }
+  }
 
+  resetDB(){
+    this.newsService.resetDB().subscribe(
+      x=>{this.router.navigate(['/']);
+    }
+    );
   }
 
 

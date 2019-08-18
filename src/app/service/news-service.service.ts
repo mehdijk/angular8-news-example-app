@@ -37,5 +37,9 @@ export class NewsServiceService {
     return this.http.put<News>(this.apiUrl,news);
   }
 
+  resetDB():Observable<any>{
+    return this.http.post('commands/resetdb', { clear: true });
+  }
+
  
 }
