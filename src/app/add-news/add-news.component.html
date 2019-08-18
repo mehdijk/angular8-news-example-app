@@ -4,44 +4,55 @@
 <ng-template #addTitle>
   <h2>Add a news</h2>
 </ng-template>
-<form class="add-form" ngForm *ngIf="news">
+<form class="add-form" #f="ngForm" *ngIf="news" #addForm>
+
     <mat-form-field >
       <input matInput placeholder="News title" 
-      [(ngModel)]="news.title" name="title">
+      [(ngModel)]="news.title" name="title" #title="ngModel"
+      required>
     </mat-form-field>
+    <div *ngIf="title.invalid && (title.dirty || title.touched)"
+    class="alert alert-danger">
+        <div *ngIf="title.errors.required">
+           Title is required.
+        </div>
+    </div>
+
     <mat-form-field >
       <textarea matInput placeholder="News body" 
       [(ngModel)]="news.body" name="body"></textarea>
     </mat-form-field>
+
     <mat-form-field >
         <input matInput placeholder="Image URL" type="url"
          [(ngModel)]="news.imgUrl" name="imgUrl">
-      </mat-form-field>
+    </mat-form-field>
+
     <mat-form-field>
         <input matInput [matDatepicker]="picker" [(ngModel)]="news.entryDate" 
-        name="entryDate" placeholder="Date of news">
+        name="entryDate" placeholder="Date of news" required #entryDate=ngModel>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+    <div *ngIf="entryDate.invalid && (entryDate.dirty || entryDate.touched)"
+    class="alert alert-danger">
+        <div *ngIf="entryDate.errors.required">
+           Date is required.
+        </div>
+    </div>
+
     <div class="container-button">
     <button mat-flat-button color="accent"  class="button"
     (click)="onCancelClick()">Cancel</button>
       <ng-container *ngIf="editId; else addButton">
         <button  mat-flat-button color="accent" class="button"
-        (click)="onEditClick()">Edit</button>
+        (click)="f.form.valid && onEditClick()">Edit</button>
       </ng-container>
       <ng-template #addButton>
         <button mat-flat-button color="accent" class="button"
-        (click)="onAddClick()">Add</button>
+        (click)="f.form.valid && onAddClick()">Add</button>
       </ng-template>
 
     </div>
 
   </form>
-
-<!-- <form ngForm>
-    <input [(ngModel)]="title" name="name"><br>
-    <input [(ngModel)]="news.body" name="name"><br>
-    <input [(ngModel)]="news.date" type="date" name="name"><br>
-    <button (click)="${onAddClick()}">Add</button>
-</form> -->

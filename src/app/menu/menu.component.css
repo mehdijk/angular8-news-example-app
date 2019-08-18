@@ -3,8 +3,13 @@
 }
 .container{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-wrap: wrap;
+}
+.main-buttons{
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 @media screen and (max-width: 600px) {
     button {
